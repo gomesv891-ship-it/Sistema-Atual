@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  aside,
+  header,
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure modal overlays or parent containers don't restrict page printing */
+  .modal-print-container {
+    position: static !important;
+    overflow: visible !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    inset: auto !important;
+    display: block !important;
+  }
+
+  #espelho-oficial-orcamento-wrapper {
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #espelho-oficial-orcamento {
+    box-shadow: none !important;
+    border: 1px solid #c8dceb !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-inside: avoid !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Formatação rica de notas e listas */
+.note-rendered-content ul,
+.rich-text-editor ul {
+  list-style-type: disc !important;
+  padding-left: 1.25rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.note-rendered-content ol,
+.rich-text-editor ol {
+  list-style-type: decimal !important;
+  padding-left: 1.25rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.note-rendered-content li,
+.rich-text-editor li {
+  margin-bottom: 0.15rem;
+}
+
+.note-rendered-content strong,
+.note-rendered-content b,
+.rich-text-editor strong,
+.rich-text-editor b {
+  font-weight: 700;
+}
+
+.note-rendered-content em,
+.note-rendered-content i,
+.rich-text-editor em,
+.rich-text-editor i {
+  font-style: italic;
+}
+
+.note-rendered-content u,
+.rich-text-editor u {
+  text-decoration: underline;
+}
+
+.rich-text-editor:empty:before {
+  content: attr(data-placeholder);
+  color: #94a3b8;
+  pointer-events: none;
+  display: block;
+}
+
+#espelho-oficial-orcamento {
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Caderno Digital Fênix World — alinhamento sincronizado ao espaçamento real (32px) */
+.anotacao-rich-content {
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.anotacao-rich-content p,
+.anotacao-rich-content div,
+.anotacao-rich-content blockquote,
+.anotacao-rich-content h1,
+.anotacao-rich-content h2,
+.anotacao-rich-content h3,
+.anotacao-rich-content h4,
+.anotacao-rich-content pre {
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 32px;
+  line-height: 32px;
+  font-weight: inherit;
+}
+
+.anotacao-rich-content ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+.anotacao-rich-content ol {
+  list-style-type: decimal !important;
+  padding-left: 1.65rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+.anotacao-rich-content li {
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 32px;
+  line-height: 32px;
+}
+
+.anotacao-rich-content mark,
+.anotacao-rich-content span,
+.anotacao-rich-content b,
+.anotacao-rich-content strong,
+.anotacao-rich-content i,
+.anotacao-rich-content em,
+.anotacao-rich-content u,
+.anotacao-rich-content s,
+.anotacao-rich-content strike,
+.anotacao-rich-content font,
+.anotacao-rich-content a {
+  vertical-align: baseline;
+}
+
+.anotacao-rich-content mark {
+  border-radius: 3px;
+  padding: 0 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.anotacao-rich-content strong,
+.anotacao-rich-content b {
+  font-weight: 700 !important;
+}
+
+.anotacao-rich-content em,
+.anotacao-rich-content i {
+  font-style: italic !important;
+}
+
+.anotacao-rich-content u,
+.anotacao-checklist-editable u {
+  text-decoration: underline !important;
+}
+
+.anotacao-rich-content s,
+.anotacao-rich-content strike,
+.anotacao-checklist-editable s,
+.anotacao-checklist-editable strike {
+  text-decoration: line-through !important;
+}
+
+.anotacao-checklist-editable {
+  font-size: 16px;
+  line-height: 32px;
+  min-height: 32px;
+}
+
+.anotacao-checklist-editable:empty:before {
+  content: attr(data-placeholder);
+  color: #94a3b8;
+  pointer-events: none;
+  display: block;
+}
+
+#fenix-anotacao-print-root {
+  position: fixed;
+  left: -99999px;
+  top: 0;
+  width: 794px;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media print {
+  .anotacao-checklist-header {
+    display: none !important;
+  }
+
+  body.printing-anotacao-a4 > *:not(#fenix-anotacao-print-root) {
+    display: none !important;
+  }
+
+  body.printing-anotacao-a4 #fenix-anotacao-print-root {
+    display: block !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    visibility: visible !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    z-index: auto !important;
+  }
+
+  body.printing-anotacao-a4 #fenix-anotacao-print-root * {
+    visibility: visible !important;
+  }
+
+  body.printing-anotacao-a4 #fenix-anotacao-print-root .anotacao-checkbox-box {
+    display: inline-flex !important;
+  }
+}
+
